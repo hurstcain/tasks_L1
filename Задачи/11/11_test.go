@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestCreateSubset(t *testing.T) {
+func TestIntersection(t *testing.T) {
 	validTestData := []struct {
 		a        []interface{}
 		b        []interface{}
