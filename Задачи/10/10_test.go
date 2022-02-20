@@ -30,6 +30,10 @@ func TestCreateSubset(t *testing.T) {
 				30:  {32.5},
 			},
 		},
+		{
+			arr:      []float64{},
+			expected: map[int][]float64{},
+		},
 	}
 
 	for _, data := range validTestData {
