@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestCreateSubset(t *testing.T) {
+func TestCreateSet(t *testing.T) {
 	validTestData := []struct {
 		a        []string
 		expected []string
