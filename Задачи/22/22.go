@@ -1,80 +1,83 @@
+// Для реализации больших чисел и операций над ними
+// используется библиотека math/big
 package main
 
 import (
-	"errors"
 	"fmt"
-	"log"
+	"math/big"
 )
 
-// Тип больших чисел, которые больше 2^20
-type bigint int64
-
-// Проверка, соответствует ли значение переменной a типу bigint
-func checkBigintValue(a bigint) error {
-	if a > 1<<20 {
-		return nil
-	}
-
-	return errors.New("bigint is too small")
+// BigInt - структура, описывающая большое число.
+type BigInt struct {
+	a *big.Int
 }
 
-// Функция умножения больших чисел. Если результат умножения вышел за пределы максимального значения типа int64,
-// то возвращается ошибка
-func mult(a, b bigint) (int64, error) {
-	res := int64(a * b)
-	if a > 0 && b > 0 && res <= 0 {
-		return 0, errors.New("result of multiplication is out of the range of type int64")
-	}
-
-	return res, nil
+// NewBigInt - создает и возвращает экземпляр структуры BigInt
+func NewBigInt() BigInt {
+	return BigInt{a: new(big.Int)}
 }
 
-// Функция деления больших чисел
-func div(a, b bigint) int64 {
-	return int64(a / b)
+// Get - возвращает значение большого числа
+func (bi *BigInt) Get() *big.Int {
+	return bi.a
 }
 
-// Функция суммирования больших чисел. Если сумма вышла за пределы максимального значения типа int64,
-// то возвращается ошибка
-func sum(a, b bigint) (int64, error) {
-	res := int64(a + b)
-	if a > 0 && b > 0 && res <= 0 {
-		return 0, errors.New("result of multiplication is out of the range of type int64")
-	}
-
-	return res, nil
+// Set - устанавливает значение большого числа
+func (bi *BigInt) Set(s string) {
+	bi.a.SetString(s, 10)
 }
 
-// Функция вычитания двух больших чисел
-func sub(a, b bigint) int64 {
-	return int64(a - b)
+// Mul - функция умножения больших чисел
+func Mul(a, b BigInt) BigInt {
+	res := NewBigInt()
+	res.Get().Mul(a.Get(), b.Get())
+
+	return res
+}
+
+// Div - функция деления больших чисел
+func Div(a, b BigInt) BigInt {
+	res := NewBigInt()
+	res.Get().Div(a.Get(), b.Get())
+
+	return res
+}
+
+// Sum -функция суммирования больших чисел
+func Sum(a, b BigInt) BigInt {
+	res := NewBigInt()
+	res.Get().Add(a.Get(), b.Get())
+
+	return res
+}
+
+// Sub - функция вычитания больших чисел
+func Sub(a, b BigInt) BigInt {
+	res := NewBigInt()
+	res.Get().Sub(a.Get(), b.Get())
+
+	return res
 }
 
 func main() {
-	var a bigint = 1<<30 - 233
-	var b bigint = 1<<23 - 1001
+	a := NewBigInt()
+	b := NewBigInt()
+	a.Set("12390909120982392340921830178401290812471070")
+	b.Set("827182980001209820012983718203981028")
 
-	if err := checkBigintValue(a); err != nil {
-		log.Fatalf("Error: %v\n", err)
-	}
+	mul := Mul(a, b)
+	fmt.Printf("%v * %v = %v\n", a.Get(), b.Get(), mul.Get())
+	// output: 12390909120982392340921830178401290812471070 * 827182980001209820012983718203981028 = 10249549131618386593926522424243779064165327958720157188084233952493064078859960
 
-	if err := checkBigintValue(b); err != nil {
-		log.Fatalf("Error: %v\n", err)
-	}
+	div := Div(a, b)
+	fmt.Printf("%v / %v = %v\n", a.Get(), b.Get(), div.Get())
+	// output: 12390909120982392340921830178401290812471070 / 827182980001209820012983718203981028 = 14979647
 
-	m, err := mult(a, b)
-	if err != nil {
-		log.Fatalf("Error: %v\n", err)
-	}
-	fmt.Printf("%d * %d = %d\n", a, b, m)
+	sum := Sum(a, b)
+	fmt.Printf("%v + %v = %v\n", a.Get(), b.Get(), sum.Get())
+	// output: 12390909120982392340921830178401290812471070 + 827182980001209820012983718203981028 = 12390909948165372342131650191385009016452098
 
-	fmt.Printf("%d / %d = %d\n", a, b, div(a, b))
-
-	s, err := sum(a, b)
-	if err != nil {
-		log.Fatalf("Error: %v\n", err)
-	}
-	fmt.Printf("%d + %d = %d\n", a, b, s)
-
-	fmt.Printf("%d - %d = %d\n", a, b, sub(a, b))
+	sub := Sub(a, b)
+	fmt.Printf("%v - %v = %v\n", a.Get(), b.Get(), sub.Get())
+	// output: 12390909120982392340921830178401290812471070 - 827182980001209820012983718203981028 = 12390908293799412339712010165417572608490042
 }
