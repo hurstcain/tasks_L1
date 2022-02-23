@@ -14,7 +14,7 @@ func ReverseString(s string) string {
 		c[i], c[cLen-i-1] = c[cLen-i-1], c[i]
 	}
 
-	// Преобразомываем слайс рун в строку и возвращаем ее
+	// Преобразовываем слайс рун в строку и возвращаем ее
 	return string(c)
 }
 
