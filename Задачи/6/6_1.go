@@ -19,7 +19,7 @@ func goroutine(stopCh chan interface{}, wg *sync.WaitGroup) {
 		select {
 		// Если канал stopCh закрыли или записали в него данные, то горутина заканчивает свою работу
 		case <-stopCh:
-			fmt.Println("Прошо 10 секунд. Завершение работы горутины...")
+			fmt.Println("Прошло 10 секунд. Завершение работы горутины...")
 			return
 		default:
 			fmt.Println(d)
