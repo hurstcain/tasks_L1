@@ -58,4 +58,15 @@ func main() {
 		val, _ := m.Load(key)
 		fmt.Printf("%s: %d\n", key, val)
 	}
+	// output:
+	// Goroutine №1: 939594
+	// Goroutine №2: 956702
+	// Goroutine №3: 934656
+	// Goroutine №4: 933401
+	// Goroutine №5: 952813
+	// Goroutine №6: 945454
+	// Goroutine №7: 953094
+	// Goroutine №8: 946532
+	// Goroutine №9: 948030
+	// Goroutine №10: 926618
 }

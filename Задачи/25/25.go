@@ -24,12 +24,12 @@ func sleep2(seconds int) {
 
 func main() {
 	fmt.Printf("Current time: %v\n", time.Now().Format(time.RFC850))
-
 	sleep1(3)
-
 	fmt.Printf("Current time: %v\n", time.Now().Format(time.RFC850))
-
 	sleep2(3)
-
 	fmt.Printf("Current time: %v\n", time.Now().Format(time.RFC850))
+	// output:
+	// Current time: Thursday, 24-Feb-22 01:45:20 MSK
+	// Current time: Thursday, 24-Feb-22 01:45:23 MSK
+	// Current time: Thursday, 24-Feb-22 01:45:26 MSK
 }

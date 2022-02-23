@@ -26,4 +26,5 @@ func main() {
 	a := []string{"cat", "cat", "dog", "cat", "tree"}
 
 	fmt.Printf("%v -> %v", a, createSet(a))
+	// output: [cat cat dog cat tree] -> [cat dog tree]
 }

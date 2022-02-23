@@ -22,4 +22,5 @@ func main() {
 	s := "главрыба"
 
 	fmt.Printf("%s -> %s\n", s, ReverseString(s))
+	// output: главрыба -> абырвалг
 }

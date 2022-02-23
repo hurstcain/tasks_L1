@@ -28,4 +28,5 @@ func main() {
 	m := createSubset(arr)
 
 	fmt.Println(m)
+	// output: map[-20:[-25.4 -27 -21] 10:[13 19 15.5] 20:[24.5] 30:[32.5]]
 }

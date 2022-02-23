@@ -58,4 +58,15 @@ func main() {
 	for key, val := range m {
 		fmt.Printf("%s: %d\n", key, val)
 	}
+	// output:
+	// Goroutine №2: 1574626
+	// Goroutine №6: 1600554
+	// Goroutine №5: 1467768
+	// Goroutine №7: 1484413
+	// Goroutine №3: 1572974
+	// Goroutine №4: 1614989
+	// Goroutine №1: 1490189
+	// Goroutine №10: 1575373
+	// Goroutine №8: 1531322
+	// Goroutine №9: 1551141
 }

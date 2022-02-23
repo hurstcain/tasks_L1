@@ -21,4 +21,8 @@ func main() {
 	fmt.Println(a, b)
 	swapArithmetic(&a, &b)
 	fmt.Println(a, b)
+	// output:
+	// 10 0
+	// 0 10
+	// 10 0
 }

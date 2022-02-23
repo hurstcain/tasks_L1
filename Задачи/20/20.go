@@ -24,4 +24,5 @@ func main() {
 	s := "snow dog sun"
 
 	fmt.Printf("%s -> %s", s, ReverseWords(s))
+	// output: snow dog sun -> sun dog snow
 }

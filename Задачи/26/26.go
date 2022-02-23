@@ -35,4 +35,11 @@ func main() {
 	fmt.Printf("areSymbolsUnique(\"abCdefAaf\") -> %v\n", areSymbolsUnique("abCdefAaf"))
 	fmt.Printf("areSymbolsUnique(\"abBA\") -> %v\n", areSymbolsUnique("abBA"))
 	fmt.Printf("areSymbolsUnique(\"aabcd\") -> %v\n", areSymbolsUnique("aabcd"))
+	// output:
+	// areSymbolsUnique("abcd") -> true
+	// areSymbolsUnique("абвгд") -> true
+	// areSymbolsUnique("абвгдА") -> false
+	// areSymbolsUnique("abCdefAaf") -> false
+	// areSymbolsUnique("abBA") -> false
+	// areSymbolsUnique("aabcd") -> false
 }

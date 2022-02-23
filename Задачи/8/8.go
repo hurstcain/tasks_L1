@@ -53,4 +53,7 @@ func main() {
 
 	fmt.Printf("%d -> %b\n", *a, *a)
 	fmt.Printf("%d -> %b\n", aNew, aNew)
+	// Output:
+	// 1997 -> 11111001101
+	// 1741 -> 11011001101
 }

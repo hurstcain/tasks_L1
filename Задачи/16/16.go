@@ -40,4 +40,5 @@ func main() {
 	fmt.Printf("%v -> ", arr)
 	Quicksort(arr, 0, len(arr)-1)
 	fmt.Printf("%v\n", arr)
+	// output: [1 3 0 10 9 2] -> [0 1 2 3 9 10]
 }

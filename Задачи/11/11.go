@@ -32,4 +32,5 @@ func main() {
 	for _, v := range intersectionSet {
 		fmt.Printf("%v (%T); ", v, v)
 	}
+	// output: 1 (int); set (string); 0 (string); 21 (int); 0 (int);
 }

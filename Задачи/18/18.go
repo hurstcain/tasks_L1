@@ -75,4 +75,5 @@ func main() {
 	wg.Wait()
 
 	fmt.Printf("Значение счетчика: %d", c.Count())
+	// output: Значение счетчика: 238524928
 }
