@@ -12,12 +12,6 @@ import (
 	"time"
 )
 
-// WaitGroup
-// close
-// withCancel cancel()
-// time.after
-// Timeout
-
 func main() {
 	// Контекст, который завершается после вызова cancel()
 	cxt, cancel := context.WithCancel(context.Background())
