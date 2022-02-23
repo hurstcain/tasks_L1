@@ -22,8 +22,8 @@ func (c *Counter) Increment() {
 	c.Unlock()
 }
 
-// Get - возвращает значение счетчика.
-func (c *Counter) Get() int {
+// Count - возвращает значение счетчика.
+func (c *Counter) Count() int {
 	c.Lock()
 	defer c.Unlock()
 	return c.count
@@ -74,5 +74,5 @@ func main() {
 	// Ожидание завершения работы горутин
 	wg.Wait()
 
-	fmt.Printf("Значение счетчика: %d", c.Get())
+	fmt.Printf("Значение счетчика: %d", c.Count())
 }
