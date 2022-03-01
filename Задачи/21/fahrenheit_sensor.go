@@ -4,15 +4,17 @@ import (
 	"math/rand"
 )
 
+type Fahrenheit float64
+
 type FahrenheitSensor interface {
-	GetFahrenheitTemperature() float64
+	GetFahrenheitTemperature() Fahrenheit
 }
 
-// Sensor - структура, которая реализует интерфейс FahrenheitSensor.
+// FSensor - структура, которая реализует интерфейс FahrenheitSensor.
 // Представляет собой имитацию датчика, который измеряет температуру в градусах по Фаренгейту.
-type Sensor struct{}
+type FSensor struct{}
 
 // GetFahrenheitTemperature - возвращает значение температуры в градусах по Фаренгейту.
-func (s *Sensor) GetFahrenheitTemperature() float64 {
-	return rand.Float64()
+func (f *FSensor) GetFahrenheitTemperature() Fahrenheit {
+	return Fahrenheit(rand.Float64()*float64(rand.Intn(11)) + float64(rand.Intn(50)))
 }

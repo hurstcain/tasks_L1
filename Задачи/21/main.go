@@ -10,10 +10,14 @@ func main() {
 	rand.Seed(time.Now().UnixNano())
 
 	adapter := Adapter{
-		sensor: Sensor{},
+		sensor: FSensor{},
 	}
 
-	fmt.Printf("Показания в градусах по Фаренгейту: %v\n", adapter.sensor.GetFahrenheitTemperature())
-	fmt.Printf("Показания в градусах Цельсия: %v\n", adapter.GetCelsiusTemperature())
-	fmt.Printf("Преобразование показаний: %v\n", adapter.DoSomeWithCelsiusTemperature())
+	c := adapter.GetCelsiusTemperature()
+
+	fmt.Printf("Показания в градусах Цельсия: %v\n", c)
+	fmt.Printf("Преобразование показаний: %v\n", DoSomeWithCelsiusTemperature(c))
+	// output:
+	// Показания в градусах Цельсия: 8.10163994066513
+	// Преобразование показаний: 23.30759359726299
 }
